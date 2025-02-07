@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         width: Parameters.full_size,
         // height: Parameters.param3,
         paddingTop: Parameters.param1,
-        paddingBottom: Parameters.param2,
+        paddingBottom: Parameters.param1,
         paddingHorizontal: Parameters.param2,
         backgroundColor: Colors.my_grey,
         borderRadius: Parameters.param1,
