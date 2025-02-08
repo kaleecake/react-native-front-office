@@ -6,7 +6,7 @@ export default function SignUpScreen() {
   const signUpFields = [
     { name: "name", label: "Full Name", type: "text" , placeholder: "full name"},
     { name: "email", label: "Email", type: "email" },
-    { name: "phone", label: "Phone Number", type: "number", placeholder: "phone nummber" },
+    // { name: "phone", label: "Phone Number", type: "number", placeholder: "phone nummber" },
     { name: "password", label: "Password", type: "password", placeholder:"your password"},
   ];
 

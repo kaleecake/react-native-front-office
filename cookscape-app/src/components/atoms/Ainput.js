@@ -22,10 +22,6 @@ export default function Ainput({placeholder, onChangeText, value, keyboardtype, 
 }
 const styles = StyleSheet.create({
     input: {
-        // flex: 1,
-        // margin: 0,
-        width: "100%",
-        // height: Parameters.param3,
         paddingTop: Parameters.param1,
         paddingBottom: Parameters.param1,
         borderBottomWidth: 1,
