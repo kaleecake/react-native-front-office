@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import Minputfield from "../mollecules/Minputfield";
 import Parameters from "../../styles/param";
@@ -9,6 +9,7 @@ export default function OtypeText({label, placeholder, onChangeText, value}){
             <Minputfield 
                 label={label}
                 placeholder={placeholder}
+
                 value={value}
                 onChangeText={onChangeText}
             />
@@ -19,6 +20,6 @@ const styles = StyleSheet.create({
     container: {
       width: Parameters.full_size,
       height: "auto",
-      padding: Parameters.param2,
+      padding: Parameters.param2
     }
 })
