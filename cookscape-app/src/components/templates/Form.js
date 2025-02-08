@@ -42,6 +42,7 @@ export default function Form({ fields, onSubmit, formTitle, buttonTitle }) {
               <OtypeMail
                 key={field.name}
                 label={field.label}
+                placeholder={field.placeholder}
                 onChangeText={(value) => handleInputChange(field.name, value)}
               />
             );
@@ -50,6 +51,7 @@ export default function Form({ fields, onSubmit, formTitle, buttonTitle }) {
               <OtypePassword
                 key={field.name}
                 label ={field.label}
+                placeholder={field.placeholder}
                 onChangeText={(value)=> handleInputChange(field.name, value)}
               /> 
             )
@@ -68,7 +70,10 @@ const styles = StyleSheet.create({
     width: '90%',
     height: "auto",
     padding: 20,
-    
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20
+
   },
   title: {
     fontSize: Hierachy.title,
