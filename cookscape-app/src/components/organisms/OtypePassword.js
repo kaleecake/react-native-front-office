@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     container: {
       width: Parameters.full_size,
       height: "auto",
-      padding: Parameters.param2,
-  
+      padding: Parameters.param2
     }
 });
