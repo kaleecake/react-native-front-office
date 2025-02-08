@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         // backgroundColor: Colors.my_primary,
         padding: Parameters.param1,
         borderRadius: Parameters.param1,
+        marginTop: Parameters.param1
     },
     text: {
         fontFamily: 'Nacelle',

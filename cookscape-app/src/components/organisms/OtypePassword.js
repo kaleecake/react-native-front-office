@@ -1,16 +1,15 @@
-import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import Minputfield from "../mollecules/Minputfield";
 import Parameters from "../../styles/param";
-export default function OtypeText({label, placeholder, onChangeText, value}){
-    // const [text, setText] = useState("");
+export default function OtypePassword({ placeholder, onChangeText, value, security}){
     return(
-        <View styles = {styles.container}>
-            <Minputfield 
-                label={label}
+        <View style = {styles.container}>
+            <Minputfield
+                label="Password:"
                 placeholder={placeholder}
-                value={value}
                 onChangeText={onChangeText}
+                value={value}
+                security={true}
             />
         </View>
     )
@@ -20,5 +19,6 @@ const styles = StyleSheet.create({
       width: Parameters.full_size,
       height: "auto",
       padding: Parameters.param2,
+  
     }
-})
+});

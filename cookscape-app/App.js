@@ -1,44 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Abutton from './src/components/atoms/Abutton';
-import OtypeNumber from './src/components/organisms/OtypeNumber';
-// import Ainput from './src/components/atoms/Ainput';
-import { useState } from 'react';
-import Minputfield from './src/components/mollecules/Minputfield';
-import OtypeMail from './src/components/organisms/OtypeMail';
-import  Colors  from './src/styles/colors';
-import Parameters from './src/styles/param';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Login from "./src/pages/Login";
+import SignUpScreen from "./src/pages/SignUp";
+
+const Stack = createStackNavigator();
 
 export default function App() {
-
-  const [text, setText] = useState('');
-  const [number, onChangeNumber ] = useState('');
-  const numberchange = (text) => {
-      const numericValue = text.replace(/[^0-9]/g, "");
-      onChangeNumber(numericValue);
-      }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <Minputfield label="Eto texte:" placeholder="texte tsotra" value={ text } onChangeText={setText}/>
-      <OtypeNumber label="Entrrer un chiffre:" placeholder="entrer un chiffre" />
-      <OtypeMail label="e-mail:" placeholder="entrer un chiffre" />
-      {/* <Minputfield placeholder="mdp lesy" security={true}/>
-      <Minputfield placeholder="mdp " security={true}/>
-      <Minputfield placeholder="chiffre e" value={number} keyboardtype= "numeric" onChangeText={numberchange}/> */}
-      <Abutton title={"Za bouton"} color={ Colors.my_black } buttonsize={Parameters.small_size}/>
-
-      {/* <Ainput placeholder="" /> */}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

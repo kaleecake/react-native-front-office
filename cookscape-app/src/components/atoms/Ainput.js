@@ -8,7 +8,7 @@ import Hierachy from "../../styles/hierachy";
 
 export default function Ainput({placeholder, onChangeText, value, keyboardtype, security}) {
     return (
-       <View style={styles.input}>
+       <View style={[styles.input, {width: "100%" }]}>
         <TextInput
             secureTextEntry= {security} 
             style={styles.placeholder}
@@ -22,21 +22,22 @@ export default function Ainput({placeholder, onChangeText, value, keyboardtype, 
 }
 const styles = StyleSheet.create({
     input: {
-        width: Parameters.full_size,
+        // flex: 1,
+        // margin: 0,
+        width: "100%",
         // height: Parameters.param3,
         paddingTop: Parameters.param1,
         paddingBottom: Parameters.param1,
-        paddingHorizontal: Parameters.param2,
-        backgroundColor: Colors.my_grey,
-        borderRadius: Parameters.param1,
-        // borderColor: "none"
+        borderBottomWidth: 1,
+        borderBottomColor: Colors.my_black
         
     },
 
     placeholder: {
         fontFamily: 'Nacelle',
         fontSize: Hierachy.button_title,
-        color: Colors.grayed_item
+        color: Colors.grayed_item,
+        marginLeft: Parameters.param1
     }
 
 });

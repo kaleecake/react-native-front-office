@@ -21,11 +21,9 @@ const styles = StyleSheet.create({
     field: {
         // flex: 1,
         flexDirection: "column",
-        justifyContent: "flex-end",
         // marginBottom: Parameters.param2,
-        marginTop: 12,
-        gap: 4
-        
+        marginTop: 4,
+        gap: 4,
     },
     label: {
         fontWeight: "semi-bold",
