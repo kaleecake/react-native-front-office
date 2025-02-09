@@ -48,9 +48,8 @@ const styles = StyleSheet.create({
     // width: "50%"
   },
   price: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
     color: Colors.my_primary,
-    textAlign: "right"
   },
 });

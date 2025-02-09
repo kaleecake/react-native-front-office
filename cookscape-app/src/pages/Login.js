@@ -14,29 +14,27 @@ export default function Login({ navigation }) {
     const checkUserSession = async () => {
       const userData = await AsyncStorage.getItem("userData");
       if (userData) {
-        navigation.replace("Home", { userData: JSON.parse(userData) });
+        navigation.replace("MainApp", { userData: JSON.parse(userData) });
       }
     };
     checkUserSession();
   }, []);
 
   const handleLogin = async (formData) => {
-    // console.log("Login button clicked!");
-    // console.log("Form Data:", formData);
     if (!formData.email || !formData.password) {
-      Alert.alert("Error", "Please fill in all fields.");
-      return;
+        Alert.alert("Error", "Please fill in all fields.");
+        return;
     }
 
-    // Simulated authentication (replace with API call if needed)
     if (formData.email === "test@example.com" && formData.password === "1234") {
-      await AsyncStorage.setItem("userData", JSON.stringify(formData));
-      navigation.replace("Home", { userData: formData });
+        await AsyncStorage.setItem("userData", JSON.stringify(formData));
+        navigation.replace("MainApp"); 
     } else {
-      Alert.alert("Error", "Invalid email or password");
+        Alert.alert("Error", "Invalid email or password");
     }
-    // Alert.alert("Login Attempt", `Email: ${formData.email}\nPassword: ${formData.password}`);
-  };
+};
+
+
 
   return (
     <View style={styles.container}>
@@ -60,3 +58,4 @@ const styles = StyleSheet.create({
     color: Colors.my_primary_darker,
   },
 });
+

@@ -6,7 +6,6 @@ import Abutton from "../atoms/Abutton";
 import OtypeNumber from "../organisms/OtypeNumber"; 
 
 export default function ListClickable({ items, onItemPress, showButton, buttonTitle, onButtonPress, showIncrementButton, quantities, onQuantityChange }) {
-
     return (
         <View style={styles.container}>
             {items.map((item, index) => (
@@ -14,8 +13,8 @@ export default function ListClickable({ items, onItemPress, showButton, buttonTi
                     <MbigButton
                         image={item.image}
                         title={item.title}
-                        description={item.description}
-                        price={item.price}
+                        description={item.infos.description}  
+                        price={item.infos.price} 
                         onPress={() => onItemPress(item)}
                     />
 
@@ -29,20 +28,21 @@ export default function ListClickable({ items, onItemPress, showButton, buttonTi
                             </Text>
                             <Text
                                 style={styles.button}
-                                onPress={() => onQuantityChange(item.title, quantities[item.title] - 1)}
+                                onPress={() => onQuantityChange(item.title, Math.max(quantities[item.title] - 1, 0))}
                             >
                                 -
                             </Text>
 
                             <OtypeNumber
-                                label="Quantity"
+                                style={styles.number}
                                 placeholder="Enter quantity"
                                 value={quantities[item.title].toString()}  
                                 onChangeText={(newValue) => onQuantityChange(item.title, newValue)}  
                             />
                         </View>
                     )}
-                         {showButton && (
+
+                    {showButton && (
                         <Abutton
                             title={buttonTitle}
                             action={() => onButtonPress(item)}
@@ -65,13 +65,13 @@ const styles = StyleSheet.create({
         marginBottom: Parameters.param1,
     },
     quantityContainer: {
+        width: "80%",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: Parameters.param1,
     },
     button: {
-        fontSize: 20,
+        fontSize: 12,
         fontWeight: "bold",
         paddingHorizontal: 10,
         cursor: "pointer",
