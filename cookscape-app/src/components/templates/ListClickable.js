@@ -18,12 +18,6 @@ export default function ListClickable({ items, onItemPress, showButton, buttonTi
                         price={item.price}
                         onPress={() => onItemPress(item)}
                     />
-                    {showButton && (
-                        <Abutton
-                            title={buttonTitle}
-                            action={() => onButtonPress(item)}
-                        />
-                    )}
 
                     {showIncrementButton && (
                         <View style={styles.quantityContainer}>
@@ -47,6 +41,12 @@ export default function ListClickable({ items, onItemPress, showButton, buttonTi
                                 onChangeText={(newValue) => onQuantityChange(item.title, newValue)}  
                             />
                         </View>
+                    )}
+                         {showButton && (
+                        <Abutton
+                            title={buttonTitle}
+                            action={() => onButtonPress(item)}
+                        />
                     )}
                 </View>
             ))}
