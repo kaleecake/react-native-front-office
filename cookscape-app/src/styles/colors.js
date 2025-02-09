@@ -6,6 +6,6 @@ const Colors = {
     my_primary_darker: "#a24936",
     my_secondary: "#83bca9",
     my_grey: "#f0f0f0",
-    grayed_item: "#3E424B"
+    grayed_item: "#a9a9a9"
 }
-export default Colors;
+export default Colors

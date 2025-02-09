@@ -1,30 +1,47 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Form from "../components/templates/Form";
 import Colors from "../styles/colors";
+
 export default function Login({ navigation }) {
-  // Define the fields for the login form
   const loginFields = [
-
-    { name: "email", label: "Email", type: "email" },
-    { name: "password", label: "Password", placeholder:"Your password", type: "password" },
-
+    { name: "email", label: "Email", type: "email", placeholder: "Your email" },
+    { name: "password", label: "Password", type: "password", placeholder: "Your password" },
   ];
 
-  // Handle form submission
-  const handleLogin = (formData) => {
-    console.log("Login Data:", formData);
-    // Here, you can call an API or handle authentication logic
+  useEffect(() => {
+    const checkUserSession = async () => {
+      const userData = await AsyncStorage.getItem("userData");
+      if (userData) {
+        navigation.replace("Home", { userData: JSON.parse(userData) });
+      }
+    };
+    checkUserSession();
+  }, []);
+
+  const handleLogin = async (formData) => {
+    // console.log("Login button clicked!");
+    // console.log("Form Data:", formData);
+    if (!formData.email || !formData.password) {
+      Alert.alert("Error", "Please fill in all fields.");
+      return;
+    }
+
+    // Simulated authentication (replace with API call if needed)
+    if (formData.email === "test@example.com" && formData.password === "1234") {
+      await AsyncStorage.setItem("userData", JSON.stringify(formData));
+      navigation.replace("Home", { userData: formData });
+    } else {
+      Alert.alert("Error", "Invalid email or password");
+    }
+    // Alert.alert("Login Attempt", `Email: ${formData.email}\nPassword: ${formData.password}`);
   };
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>Login</Text> */}
-      <Form fields={loginFields} onSubmit={handleLogin} formTitle= "Log In"  buttonTitle="Log in"/>
-      <Text 
-        style={styles.link} 
-        onPress={() => navigation.navigate("SignUp")}
-      >
+      <Form fields={loginFields} onSubmit={handleLogin} formTitle="Log in to Cookscape" buttonTitle="Log in" />
+      <Text style={styles.link} onPress={() => navigation.navigate("SignUp")}>
         Don't have an account? Sign Up
       </Text>
     </View>
@@ -38,13 +55,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
   link: {
     marginTop: 10,
-    color: Colors.my_primary_darker
+    color: Colors.my_primary_darker,
   },
 });

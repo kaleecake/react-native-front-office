@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
         gap: 4,
     },
     label: {
-        fontWeight: "semi-bold",
+        fontWeight: "bold",
         fontFamily: 'Nacelle',
+        fontSize: 16,
         color: Colors.my_primary_darker
     }
 })

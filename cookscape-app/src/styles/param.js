@@ -1,5 +1,5 @@
 const Parameters = {
-    full_size: "80%",
+    full_size: "100%",
     small_size: "40%",
     param1: 8,
     param2: 16,

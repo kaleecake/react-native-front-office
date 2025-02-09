@@ -59,7 +59,10 @@ export default function Form({ fields, onSubmit, formTitle, buttonTitle }) {
             return null;
         }
       })}
-      <Abutton title={buttonTitle} onPress={() => onSubmit(formData)} />
+      <Abutton title={buttonTitle} action={() => {
+          console.log("Button Pressed!"); 
+          onSubmit(formData);
+      }} />
       {/* <Button title="Submit" onPress={() => onSubmit(formData)} /> */}
   </View>
   );
